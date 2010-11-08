@@ -18,7 +18,7 @@ $guildID = '11569';
 $timezone = 'UTC';
 
 /* Time / Date style used for roster script (Values can be taken from http://php.net/manual/en/function.date.php) */
-$datestyle = "l, F j Y, g:i a T";
+$datestyle = "l, F j Y, g:i A T";
 
 /* URL for getting legion info (Don't change it unless you know what you are doing) */
 $url = 'http://' . $countryID . '.aiononline.com/livestatus/character-legion/search?serverID=' . $serverID . '&guildID=' . $guildID;
