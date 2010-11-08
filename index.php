@@ -5,9 +5,10 @@
  *	  www.yuminanako.info
  *
  \************************************************************/
-/* Include Timer, Config, Simple HTML DOM Parser and Pagination and PEAR Net_URL2 and Curl */
+/* Include Timer, Config, Zlib, Simple HTML DOM Parser and Pagination and PEAR Net_URL2 and cURL */
 require('inc/php/timer-header.tpl.php');
 require('inc/php/config.php');
+require('inc/php/zlib.php');
 require('inc/php/simple_html_dom.php');
 require('inc/php/pagination.class.php');
 require('inc/php/URL2.php');
