@@ -1,5 +1,7 @@
-.centeralign {text-align:center}
-/* Sortable tables */
+.centeralign{
+    text-align:center
+}
+
 table.sortable thead {
     background-color:#eee;
     color:#666666;
@@ -36,16 +38,6 @@ table.sortable thead {
  line-height:15px;
 }
 
-/*
-   Add the following to your CSS file should you wish the cursor to
-   "wait" while the script is processing the sort
-
-body.sort-active *
-        {
-        cursor:wait;
-        }
-*/
-
 body
         {
         padding:0;
@@ -55,32 +47,6 @@ body
         font: 12px/22px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
         color: #4f6b72;
         min-width: 800px;
-        }
-h1
-        {
-        font-weight:lighter;
-        font-family:"Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-        color: #4f6b72;
-        text-align:center;
-        margin-top:0.6em;
-        color:#545454;
-        font-size:2em;
-        }
-h2
-        {
-        font-weight:lighter;
-        font-family:verdana,arial,sans-serif;
-        text-align:center;
-        margin-top:1em;
-        color:#333;
-        /*text-transform:uppercase;*/
-        letter-spacing:1px;
-        font-size:1.2em;
-        }
-h2 span
-        {
-        font-variant:small-caps;
-        text-transform:none;
         }
 table
         {
@@ -92,53 +58,6 @@ table
 		border-left: 1px solid #8998AB;
 		border-right: 1px solid #8998AB;
         border-collapse:collapse;
-        }
-.cs1
-        {
-        width:30em;
-        }
-.cs2
-        {
-        width:20em;
-        }
-.cs1 td,
-.cs2 td,
-#scientificNotation
-        {
-        text-align:right;
-        }
-th
-        {
-        font: bold 10px/22px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-        color: #4f6b72;
-        border-right: 1px solid #8998AB;
-        border-bottom: 1px solid #8998AB;
-        border-top: 1px solid #8998AB;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        text-align: left;
-        padding: 8px 12px 4px 12px;
-        background: #CAE8EA url(../media/bg_header.jpg) no-repeat;
-        vertical-align:middle;
-        }
-/*
-These styles should be added when very long tables are expected
-th.sort-active
-        {
-        background:#CAE8EA url(../media/bg_header_sorting.jpg) no-repeat 0 0;
-        cursor:wait;
-        }
-th.sort-active a
-        {
-        color:#a80000 !important;
-        cursor:wait;
-        }
-*/
-th a
-        {
-        text-decoration:none;
-        color: #4f6b72;
-        background:transparent;
         }
 td a
         {
@@ -166,46 +85,4 @@ td
         border-bottom: 1px solid #8998AB;
         padding: 6px 12px 6px 12px;
         color: #4f6b72;
-        }
-td.lft
-        {
-        text-align:left;
-        }
-tr.alt
-        {
-        background: #F5FAFA;
-        color: #797268;
-        }
-
-/* Poor old Internet Explorer 6 has a bug that means we can't use background images for the table rows
-   as it trys to download the image each and every time that it is used (which means a 1000 row table
-   will produce 1000 http requests for the image in question) */
-tr[class="alt"] td
-        {
-        background: #F5FAFA url(../media/td_alt.jpg) no-repeat;
-        }
-td[class~="alt"]
-        {
-        background: #edf3f3 url(../media/col_alt.jpg) no-repeat !important;
-        }
-/* Poor old Internet Explorer won't see the next two rules either as it doesn't get :first-child */
-tbody tr.alt td:first-child
-        {
-        background: #F5FAFA url(../media/bullet2.gif) no-repeat;
-        font-weight:bold;
-        }
-tbody tr td:first-child
-        {
-        background: #fff url(../media/bullet1.gif) no-repeat;
-        font-weight:bold;
-        }
-/* Image free rules for Internet Explorer < 7 */
-* html tr.alt td
-        {
-        background-color:#F5FAFA;
-        }
-* html tr td.alt,
-* html tr.alt td.alt
-        {
-        background-color:#edf3f3;
         }

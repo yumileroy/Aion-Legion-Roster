@@ -6,8 +6,8 @@
 
 <head>
 <title><?php echo $legionname; ?> Legion Roster</title>
-<link rel="stylesheet" type="text/css" href="inc/css/style.css" />
-<script type="text/javascript" src="inc/js/sorttable.js"></script>
+<link rel="stylesheet" type="text/css" href="gzload.php?type=css&amp;files=inc/css/style.css />
+<script type="text/javascript" src="gzload.php?type=js&amp;files=inc/js/sorttable.js"></script>
 
 </head>
 
