@@ -21,8 +21,6 @@ $gradePages = $pagination->generate($grade, $charnum);
 $levelPages = $pagination->generate($level, $charnum);
 $classPages = $pagination->generate($class, $charnum);
 
-$legioncreated = date($datestyle, strtotime($legioncreated));
-
 if ($display !== "all")
 {
 echo "<div class='left' style='text-align=left;'><span class='header'>Classes: </span><br/><span class='subheader'>Scout Classes</span><br/> $assassins Assassins <br/> $rangers Rangers <br/> <span class='subheader'>Priest Classes</span><br/> $chanters Chanters <br/> $clerics Clerics <br/> <span class='subheader'>Warrior Classes</span><br/> $gladiators Gladiators <br/> $templars Templars <br/> <span class='subheader'>Mage Classes</span><br/> $sorcerers Sorcerers <br/> $spiritmasters Spiritmasters</div>";

@@ -23,9 +23,29 @@ I think that's the best I can make do without making use of the [PHP Tidy](http:
 
 #### Installation:
 
-To use the PHP script, just upload it to a web-accessible directory on your web server, and make sure that the cache folder is writable.
+##### To use the PHP script:
+    Just upload it to a web-accessible directory on your web server, and make sure that the cache folder is writable.
+    Then edit inc/php/config.php to suit your legion.
+
+##### To change how the page display: 
+    Edit inc/php/roster.tpl.php and inc/css/style.css
 
 ### **Variables**:
+#### Configuration (Although the config file is pretty much explained, I'll put it in here just for reference)
+
+    $countryID (Values are 'na' for North American servers and 'uk' for United Kingdom servers)
+    $serverID (ID for your server, value can be taken from the Aion site by searching for your legion)
+    $timezone (Default timezone used for date and time functions in roster script. Values can be taken from http://php.net/manual/en/timezones.php)
+    $datestyle (Time / Date style used for roster script. Values can be taken from http://php.net/manual/en/function.date.php)
+    $url (URL for getting legion info. Don't change it unless you know what you are doing)
+    $url1 (Same as $url)
+    $url2
+    $url3
+    $aionabsoluteurl (Replace character profile links with the official Aion site)
+    $charnum (Number of characters to display per page)
+    $cachedir (Directory to store cache output)
+    $cachetime (Number of seconds to cache output for)
+
 #### Legion Information:
 
     $legionname (Name of legion)

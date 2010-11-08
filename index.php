@@ -5,7 +5,7 @@
  *	  www.yuminanako.info
  *
  \************************************************************/
-// Include Timer, Config, Simple HTML DOM Parser and Pagination and PEAR Net_URL2 and Curl and Snoopy 
+/* Include Timer, Config, Simple HTML DOM Parser and Pagination and PEAR Net_URL2 and Curl */
 require('inc/php/timer-header.tpl.php');
 require('inc/php/config.php');
 require('inc/php/simple_html_dom.php');
@@ -44,10 +44,10 @@ else
 
 ob_start();
 
-// Initialize Pagination
+/* Initialize Pagination */
 $pagination = new pagination;
 
-// Create DOM from URL (Curl / file_get_html) - Fallback to file_get_html if Curl is not installed
+/* Create DOM from URL (Curl / file_get_html) - Fallback to file_get_html if Curl is not installed */
 if (_iscurlinstalled())
 {
 $html = str_get_html(file_get_contents_curl($url));
@@ -63,7 +63,7 @@ $html3 = file_get_html($url3);
 
 $display = $_GET['display'];
 
-// Create Arrays for Different variables
+/* Create Arrays for Different variables */
 $members = array();
 $members2 = array();
 $members3 = array();
@@ -82,10 +82,9 @@ $classtext = array();
 $page = array();
 $legion = array();
 
-// Initialize PEAR Net_URL2 for absolute pathing
+/* Initialize PEAR Net_URL2 for absolute pathing */
 $uri = new Net_URL2($aionabsoluteurl); // URI of the resource
 $baseURI = $uri;
-
 
 foreach ($html->find('base[href]') as $elem) {
     $baseURI = $uri->resolve($elem->href);
@@ -98,7 +97,7 @@ foreach ($html->find('*[href]') as $elem) {
     $elem->href = htmlspecialchars($elem->href);
     $elem->href = $baseURI->resolve($elem->href)->__toString();
 }
-// Save number of pages to variable
+/* Save number of pages to variable */
 foreach ($html->find('div[class=paging]') as $key => $testinfo) {
     $page[] = $testinfo->plaintext;
 }
@@ -120,6 +119,7 @@ foreach ($html->find('td[class=class]') as $classkey => $classinfo) {
     $class[] = $classinfo;
     $classtext[] = $classinfo->plaintext;
 }
+/* If Page 2 exists, scrape Page 2 */
 if (strlen(strstr($page[0], "2")) > 0) {
     foreach ($html2->find('*[src]') as $elem) {
         $elem->src = $baseURI->resolve($elem->src)->__toString();
@@ -149,6 +149,7 @@ if (strlen(strstr($page[0], "2")) > 0) {
         $class2[] = $classinfo->plaintext;
     }
 }
+/* If Page 3 exists, scrape Page 3 */
 if (strlen(strstr($page[0], "3")) > 0) {
     foreach ($html3->find('*[src]') as $elem) {
         $elem->src = $baseURI->resolve($elem->src)->__toString();
@@ -178,7 +179,7 @@ if (strlen(strstr($page[0], "3")) > 0) {
         $class3[] = $classinfo->plaintext;
     }
 }
-// Count number of classes in legion
+/* Count number of classes in legion */
 $classes = array_count_values($classtext);
 $assassins = $classes[' Assassin'];
 $rangers = $classes[' Ranger'];
@@ -189,11 +190,11 @@ $templars = $classes[' Templar'];
 $sorcerers = $classes[' Sorcerer'];
 $spiritmasters = $classes[' Spiritmaster'];
 
-// Count number of levels in legion and sort array by array key
+/* Count number of levels in legion and sort array by array key */
 $levels = array_count_values($leveltext);
 ksort($levels);
 
-// Count number of each rank in legion and replace special non ASCII characters from Array key
+/* Count number of each rank in legion and replace special non ASCII characters from Array key */
 $grades = array_count_values($gradetext);
 $gradeskeys = preg_replace('/[^(\x20-\x7F)]*/', '', array_keys($grades));
 $gradesvalues = array_values($grades);
@@ -202,7 +203,7 @@ $brigadegeneral = $grades['Brigade General'];
 $centurions = $grades['Centurion'];
 $legionaries = $grades['Legionary'];
 
-// Create variables for legion name, created date and members
+/* Create variables for legion name, created date and members */
 $legionname = explode(" (", $legion[0]);
 $legionname = preg_replace('/[^(\x20-\x7F)]*/', '', $legionname[0]);
 $legioncreatedmember = explode(" (", $legion[0]);
@@ -210,10 +211,10 @@ $legioncreatedmember = substr($legioncreatedmember[1], 0, -5);
 $legioncreated = explode(" / ", $legioncreatedmember);
 $legioncreated = $legioncreated[0];
 $legioncreated = explode("Created ", $legioncreated);
-$legioncreated = $legioncreated[1];
+$legioncreated = date($datestyle, strtotime($legioncreated[1]));
 $legionmember = count($members);
 
-// Include Roster Template
+/* Include Roster Template */
 require('inc/php/roster.tpl.php');
 
 /* We've got fresh content stored in $data! */
