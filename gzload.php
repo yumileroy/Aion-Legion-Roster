@@ -2,8 +2,8 @@
 
 // Set these to the correct paths
 require_once 'inc/php/config.php';
-require_once 'inc/php/CacheLite.php';
-require_once 'inc/php/jsmin.php';
+require_once 'inc/php/lib/CacheLite.php';
+require_once 'inc/php/lib/jsmin.php';
 
 $cacheId = md5($_SERVER['QUERY_STRING']);
 $cacheOptions = array('cacheDir' => $cachedir,  'lifeTime' => 3600, 'pearErrorMode' => CACHE_LITE_ERROR_DIE);
@@ -63,4 +63,3 @@ header('Vary: Accept-Encoding');
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $cacheOptions['lifeTime']) . ' GMT');
 echo $buffer;
 ?>
-

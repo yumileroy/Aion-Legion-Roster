@@ -8,11 +8,11 @@
 /* Include Timer, Config, Simple HTML DOM Parser and Pagination and PEAR Net_URL2 and cURL and PEAR Cache_Lite */
 require('inc/php/timer-header.tpl.php');
 require('inc/php/config.php');
-require('inc/php/simple_html_dom.php');
-require('inc/php/pagination.class.php');
-require('inc/php/URL2.php');
-require('inc/php/curl.php');
-require_once('inc/php/CacheLite.php');
+require('inc/php/lib/simple_html_dom.php');
+require('inc/php/lib/pagination.class.php');
+require('inc/php/lib/URL2.php');
+require('inc/php/lib/curl.php');
+require_once('inc/php/lib/CacheLite.php');
 
 /* Set a key for this cache item */
 $cacheid = $guildID . basename($_SERVER['REQUEST_URI']);
