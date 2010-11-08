@@ -35,6 +35,7 @@ I think that's the best I can make do without making use of the [PHP Tidy](http:
 
     $countryID (Values are 'na' for North American servers and 'uk' for United Kingdom servers)
     $serverID (ID for your server, value can be taken from the Aion site by searching for your legion)
+    $guildID (ID for your legion, value can be taken from the Aion site by searching for your legion)
     $timezone (Default timezone used for date and time functions in roster script. Values can be taken from http://php.net/manual/en/timezones.php)
     $datestyle (Time / Date style used for roster script. Values can be taken from http://php.net/manual/en/function.date.php)
     $url (URL for getting legion info. Don't change it unless you know what you are doing)
