@@ -1,12 +1,10 @@
-<?php echo '<?xml version="1.0" encoding="utf-8"?>' . PHP_EOL; ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<?php echo '<?xml version="1.1" encoding="utf-8"?>' . PHP_EOL; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 <title><?php echo $legionname; ?> Legion Roster</title>
-<link rel="stylesheet" type="text/css" href="gzload.php?type=css&amp;files=inc/css/style.css />
+<link rel="stylesheet" type="text/css" href="gzload.php?type=css&amp;files=inc/css/style.css" />
 <script type="text/javascript" src="gzload.php?type=js&amp;files=inc/js/sorttable.js"></script>
 
 </head>
@@ -35,38 +33,35 @@ echo "<div class='center' style='text-align:center;'><span class='header'>Legion
 echo "<table class='sortable'>";
 echo "<thead>";
 echo "<tr>";
-echo "<td class='centeralign'>";
+echo "<th class='centeralign'>";
 echo "<b>Legion Members</b>";
-echo "</td>";
-echo "<td class='centeralign'>";
+echo "</th>";
+echo "<th class='centeralign'>";
 echo "<b>Grade</b>";
-echo "</td>";
-echo "<td class='centeralign'>";
+echo "</th>";
+echo "<th class='centeralign'>";
 echo "<b>Level</b>";
-echo "</td>";
-echo "<td class='centeralign'>";
+echo "</th>";
+echo "<th class='centeralign'>";
 echo "<b>Class</b>";
-echo "</td>";
+echo "</th>";
 echo "</tr>";
 echo "</thead>";
 
 echo "<tbody>";
-echo "<tr>";
-
-
 for ( $i = 0; $i < count($memberPages); $i++)
 {
+echo "<tr>";
 echo $memberPages[$i];
 echo $gradePages[$i];
 echo $levelPages[$i];
 echo $classPages[$i];
 echo "</tr>";
 }
-
 echo "</tbody>";
 echo "</table>";
 
-echo "<div align='center'>";
+echo "<div class='centerblock'>";
 echo $pagination->links();
 echo "<br/>";
 echo "<a href='?display=all'>All</a>";
@@ -89,36 +84,35 @@ echo "<div class='center' style=' text-align:center;'><span class='header'>Legio
 echo "<table class='sortable'>";
 echo "<thead>";
 echo "<tr>";
-echo "<td class='centeralign'>";
+echo "<th class='centeralign'>";
 echo "<b>Legion Members</b>";
-echo "</td>";
-echo "<td class='centeralign'>";
+echo "</th>";
+echo "<th class='centeralign'>";
 echo "<b>Grade</b>";
-echo "</td>";
-echo "<td class='centeralign'>";
+echo "</th>";
+echo "<th class='centeralign'>";
 echo "<b>Level</b>";
-echo "</td>";
-echo "<td class='centeralign'>";
+echo "</th>";
+echo "<th class='centeralign'>";
 echo "<b>Class</b>";
-echo "</td>";
+echo "</th>";
 echo "</tr>";
 echo "</thead>";
 
 echo "<tbody>";
-echo "<tr>";
 for ( $i = 0; $i < count($members); $i++)
 {
+echo "<tr>";
 echo $members[$i];
 echo $grade[$i];
 echo $level[$i];
 echo $class[$i];
-echo "</td>";
-
 echo "</tr>";
 }
+echo "</tbody>";
 echo "</table>";
 
-echo "<div align='center'>";
+echo "<div class='centerblock'>";
 include('inc/php/timer-footer.tpl.php');
 echo "</div>";
 }

@@ -7,9 +7,10 @@ Aion Legion Roster (PHP script)
 
 I was kinda bored so I just made a script to parse out the legion roster.
 Don't mind if it looks bad or is kinda unpolished.
-I tried to make it to comply to XHTML as much as I can, the output validated with 19 errors so far on my demo site (Reduced it from hundreds to 19 errors). 
-I think that's the best I can make do without making use of the [PHP Tidy](http://php.net/manual/en/book.tidy.php "PHP: Tidy - Manual") extension which I know not many hosts will have, so I decided not to code that in.
+My template is 100% XHTML 1.1 Strict compatible. (After much screaming and yelling and almost tearing my hair out xD)
 
+- Supported scraping and parsing HTML with [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/ "PHP Simple HTML DOM Parser")
+- Supported Javascript / CSS minifier with [Pretty Fly JS/CSS Compressor](http://prettyflywebsite.com/css/simple-and-fast-css-javascript-compressor-updated/ "Pretty Fly CSS/JS Compressor")
 - Supported File Caching with [PEAR Cache Lite](http://pear.php.net/package/Cache_Lite/ "PEAR Cache Lite")
 - Supported character replacement links to point to Aion site with [PEAR Net_URL2](http://pear.php.net/package/Net_URL2/ "PEAR Net_URL2")
 - Supported Pagination with [Lots of Code PHP Array Pagination](http://www.lotsofcode.com/php/php-array-pagination.htm "Lots of Code PHP Array Pagination")
@@ -19,7 +20,7 @@ I think that's the best I can make do without making use of the [PHP Tidy](http:
 #### List of prerequisites:
 
 	Webhost with PHP
-	PHP with CURL / file_get_contents (Webhost needs to have CURL or have enabled fopen_wrappers for file_get_contents to work)
+	PHP with cURL / file_get_contents (Webhost needs to have cURL or have enabled fopen_wrappers for file_get_contents to work)
 
 #### Installation:
 
@@ -87,5 +88,5 @@ An demo of the script running is [here](http://nanaforge.info/roster/ "Yumi Aion
 
 ### **Authors**:
 
-Original Author is [**Yumi Nanako**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail") and [**Leroy Lim**](mailto:leroylim@yuminanako.info "Leroy Lim E-mail").
-It is currently maintained by [**Yumi Nanako**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail")
+Original Author is [**Yumi Nanako / Yumi (Mythical) of Israphel**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail").
+It is currently maintained by [**Yumi Nanako / Yumi (Mythical) of Israphel**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail")

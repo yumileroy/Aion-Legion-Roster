@@ -2,6 +2,12 @@
     text-align:center
 }
 
+.centerblock{
+	float:center;
+	line-height:15px;
+	text-align: center
+}
+
 table.sortable thead {
     background-color:#eee;
     color:#666666;
@@ -79,6 +85,14 @@ td a:hover
         background:transparent;
         }
 td
+        {
+        font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        border-right: 1px solid #8998AB;
+        border-bottom: 1px solid #8998AB;
+        padding: 6px 12px 6px 12px;
+        color: #4f6b72;
+        }
+th
         {
         font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
         border-right: 1px solid #8998AB;
