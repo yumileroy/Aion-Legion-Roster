@@ -37,8 +37,11 @@ if(false == $buffer = $cacheLite->get($cacheId)) {
         $buffer = str_replace(array("\r", "\n", "\t", "  "), '', $buffer);
     }
 
-	// Cache results
-	$buffer = gzencode($buffer, 9); // Wordt geregeld door Apache
+    // Cache results
+    if (!(@ini_get('zlib.output_compression')))
+    {
+        $buffer = gzencode($buffer, 9); // Wordt geregeld door Apache
+    }
 	// $cacheLite->save($buffer);
 }
 
@@ -56,7 +59,10 @@ switch($_GET['type']) {
 		break;
 }
 
-header('Content-Encoding: gzip');
+if (!(@ini_get('zlib.output_compression')))
+{
+    header('Content-Encoding: gzip');
+}
 header($contentType);
 header('Cache-Control: must-revalidate');
 header('Vary: Accept-Encoding');

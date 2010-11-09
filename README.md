@@ -19,7 +19,7 @@ My template is 100% XHTML 1.1 Strict compatible. (After much screaming and yelli
 ### **Requirements**:
 #### List of prerequisites:
 
-	Webhost with PHP
+	Webhost with PHP5
 	PHP with cURL / file_get_contents (Webhost needs to have cURL or have enabled fopen_wrappers for file_get_contents to work)
 
 #### Installation:
@@ -88,5 +88,5 @@ An demo of the script running is [here](http://nanaforge.info/roster/ "Yumi Aion
 
 ### **Authors**:
 
-Original Author is [**Yumi Nanako / Yumi (Mythical) of Israphel**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail").
-It is currently maintained by [**Yumi Nanako / Yumi (Mythical) of Israphel**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail")
+Original Author is [**Yumi Nanako**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail") / [**Yumi (Mythical) of Israphel**](http://na.aiononline.com/livestatus/character-legion/search?serverID=2&charID=329640 "Yumi's Aion Profile").
+It is currently maintained by [**Yumi Nanako**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail") / [**Yumi (Mythical) of Israphel**](http://na.aiononline.com/livestatus/character-legion/search?serverID=2&charID=329640 "Yumi's Aion Profile")
