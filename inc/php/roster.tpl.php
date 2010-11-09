@@ -1,3 +1,6 @@
+<?php
+$uri = "http://" . $_SERVER['HTTP_HOST'] . preg_replace("#/[^/]*\.php$#simU", "/", $_SERVER["PHP_SELF"]);
+?>
 <?php echo '<?xml version="1.1" encoding="utf-8"?>' . PHP_EOL; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -5,8 +8,10 @@
 <head>
 <title><?php echo $legionname; ?> Legion Roster</title>
 <link rel="stylesheet" type="text/css" href="gzload.php?type=css&amp;files=inc/css/style.css" />
-<script type="text/javascript" src="gzload.php?type=js&amp;files=inc/js/sorttable.js"></script>
-
+<script type="text/javascript">
+var GB_ROOT_DIR = "<?php echo $uri ?>inc/greybox/";
+</script>
+<script type="text/javascript" src="gzload.php?type=js&amp;files=inc/js/sorttable.js,inc/greybox/AJS.js,inc/greybox/AJS_fx.js,inc/greybox/gb_scripts.js"></script>
 </head>
 
 <body>

@@ -91,6 +91,9 @@ foreach ($html->find('*[src]') as $elem) {
     $elem->src = $baseURI->resolve($elem->src)->__toString();
 }
 foreach ($html->find('*[href]') as $elem) {
+	$charprofilename = strip_tags($elem->outertext);
+	$elem->title = "$charprofilename's Profile";
+	$elem->rel = "gb_page_fs[]";
     if (strtoupper($elem->tag) === 'BASE') continue;
     $elem->href = htmlspecialchars($elem->href);
     $elem->href = $baseURI->resolve($elem->href)->__toString();
@@ -100,14 +103,14 @@ foreach ($html->find('div[class=paging]') as $key => $testinfo) {
     $page[] = $testinfo->plaintext;
 }
 foreach ($html->find('ul[class=legion]') as $key => $legioninfo) {
-    $legion[] = $legioninfo->plaintext;
+    $legion[] = preg_replace('/[^(\x20-\x7F)]*/', '', $legioninfo->plaintext);
 }
 foreach ($html->find('td[class=member]') as $key => $memberinfo) {
     $members[] = $memberinfo;
 }
 foreach ($html->find('td[class=grade]') as $gradekey => $gradeinfo) {
     $grade[] = $gradeinfo;
-    $gradetext[] = $gradeinfo->plaintext;
+    $gradetext[] = preg_replace('/[^(\x20-\x7F)]*/', '', $gradeinfo->plaintext);
 }
 foreach ($html->find('td[class=level]') as $levelkey => $levelinfo) {
     $level[] = $levelinfo;
@@ -123,6 +126,9 @@ if (strlen(strstr($page[0], "2")) > 0) {
         $elem->src = $baseURI->resolve($elem->src)->__toString();
     }
     foreach ($html2->find('*[href]') as $elem) {
+		$charprofilename = strip_tags($elem->outertext);
+		$elem->title = "$charprofilename's Profile";
+		$elem->rel = "gb_page_fs[]";
         if (strtoupper($elem->tag) === 'BASE') continue;
 		$elem->href = htmlspecialchars($elem->href);
         $elem->href = $baseURI->resolve($elem->href)->__toString();
@@ -133,7 +139,7 @@ if (strlen(strstr($page[0], "2")) > 0) {
     }
     foreach ($html2->find('td[class=grade]') as $gradekey => $gradeinfo) {
         $grade[] = $gradeinfo;
-        $gradetext[] = $gradeinfo->plaintext;
+        $gradetext[] = preg_replace('/[^(\x20-\x7F)]*/', '', $gradeinfo->plaintext);
         $grade2[] = $gradeinfo->plaintext;
     }
     foreach ($html2->find('td[class=level]') as $levelkey => $levelinfo) {
@@ -153,6 +159,9 @@ if (strlen(strstr($page[0], "3")) > 0) {
         $elem->src = $baseURI->resolve($elem->src)->__toString();
     }
     foreach ($html3->find('*[href]') as $elem) {
+		$charprofilename = strip_tags($elem->outertext);
+		$elem->title = "$charprofilename's Profile";
+		$elem->rel = "gb_page_fs[]";
         if (strtoupper($elem->tag) === 'BASE') continue;
 		$elem->href = htmlspecialchars($elem->href);
         $elem->href = $baseURI->resolve($elem->href)->__toString();
@@ -163,7 +172,7 @@ if (strlen(strstr($page[0], "3")) > 0) {
     }
     foreach ($html3->find('td[class=grade]') as $gradekey => $gradeinfo) {
         $grade[] = $gradeinfo;
-        $gradetext[] = $gradeinfo->plaintext;
+        $gradetext[] = preg_replace('/[^(\x20-\x7F)]*/', '', $gradeinfo->plaintext);
         $grade3[] = $gradeinfo->plaintext;
     }
     foreach ($html3->find('td[class=level]') as $levelkey => $levelinfo) {
@@ -192,18 +201,15 @@ $spiritmasters = $classes[' Spiritmaster'];
 $levels = array_count_values($leveltext);
 ksort($levels);
 
-/* Count number of each rank in legion and replace special non ASCII characters from Array key */
+/* Count number of each rank in legion */
 $grades = array_count_values($gradetext);
-$gradeskeys = preg_replace('/[^(\x20-\x7F)]*/', '', array_keys($grades));
-$gradesvalues = array_values($grades);
-$grades = array_combine($gradeskeys, $gradesvalues);
 $brigadegeneral = $grades['Brigade General'];
 $centurions = $grades['Centurion'];
 $legionaries = $grades['Legionary'];
 
 /* Create variables for legion name, created date and members */
 $legionname = explode(" (", $legion[0]);
-$legionname = preg_replace('/[^(\x20-\x7F)]*/', '', $legionname[0]);
+$legionname = $legionname[0];
 $legioncreatedmember = explode(" (", $legion[0]);
 $legioncreatedmember = substr($legioncreatedmember[1], 0, -5);
 $legioncreated = explode(" / ", $legioncreatedmember);
