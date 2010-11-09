@@ -15,7 +15,7 @@ require('inc/php/lib/curl.php');
 require_once('inc/php/lib/CacheLite.php');
 
 /* Set a key for this cache item */
-$cacheid = $guildID . basename($_SERVER['REQUEST_URI']);
+$cacheid = $guildID . basename(htmlspecialchars($_SERVER['REQUEST_URI']));
 
 /* Set a few options */
 $cacheoptions = array(
