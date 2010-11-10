@@ -7,13 +7,14 @@ Aion Legion Roster (PHP script)
 
 I was kinda bored so I just made a script to parse out the legion roster.
 Don't mind if it looks bad or is kinda unpolished.
-My template is 100% XHTML 1.1 Strict compatible. (After much screaming and yelling and almost tearing my hair out xD)
+My template is 100% XHTML 1.0 Strict compatible. (After much screaming and yelling and almost tearing my hair out xD)
 
 - Supported scraping and parsing HTML with [PHP Simple HTML DOM Parser](http://simplehtmldom.sourceforge.net/ "PHP Simple HTML DOM Parser")
 - Supported Javascript / CSS minifier with [Pretty Fly JS/CSS Compressor](http://prettyflywebsite.com/css/simple-and-fast-css-javascript-compressor-updated/ "Pretty Fly CSS/JS Compressor")
 - Supported File Caching with [PEAR Cache Lite](http://pear.php.net/package/Cache_Lite/ "PEAR Cache Lite")
 - Supported character replacement links to point to Aion site with [PEAR Net_URL2](http://pear.php.net/package/Net_URL2/ "PEAR Net_URL2")
 - Supported Pagination with [Lots of Code PHP Array Pagination](http://www.lotsofcode.com/php/php-array-pagination.htm "Lots of Code PHP Array Pagination")
+- Supported AJAX profile popup with [Orangoo Labs - Greybox](http://orangoo.com/labs/GreyBox/ "Orangoo Labs - Greybox")
 - Supported file retrieval with either [cURL](http://php.net/manual/en/book.curl.php "PHP: cURL - Manual") or fallbacks to file_get_contents if cURL PHP extension is not installed.
 
 ### **Requirements**:
