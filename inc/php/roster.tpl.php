@@ -8,11 +8,18 @@ $uri = "http://" . $_SERVER['HTTP_HOST'] . preg_replace("#/[^/]*\.php$#simU", "/
 
 <head>
 <title><?php echo $legionname; ?> Legion Roster</title>
+
+<?php if($greybox == 1) { ?>
 <link rel="stylesheet" type="text/css" href="gzload.php?type=css&amp;files=inc/greybox/gb_styles.css,inc/css/style.css" />
 <script type="text/javascript">
 var GB_ROOT_DIR = "<?php echo $uri ?>inc/greybox/";
 </script>
 <script type="text/javascript" src="gzload.php?type=js&amp;files=inc/js/sorttable.js,inc/greybox/AJS.js,inc/greybox/AJS_fx.js,inc/greybox/gb_scripts.js"></script>
+<?php } else if($greybox == 0) { ?>
+<link rel="stylesheet" type="text/css" href="gzload.php?type=css&amp;files=inc/css/style.css" />
+<script type="text/javascript" src="gzload.php?type=js&amp;files=inc/js/sorttable.js"></script>
+<?php } ?>
+
 </head>
 
 <body>

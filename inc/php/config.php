@@ -32,8 +32,11 @@ $aionabsoluteurl = "http://" . $countryID . ".aiononline.com/";
 /* Number of characters to display per page */
 $charnum = '20';
 
+/* Use Greybox (Values can be 0 to off or 1 to on) */
+$greybox = '1';
+
 /* Use Greybox alternate layout (Values can be 0 to off or 1 to on) */
-$ajaxalt = '0';
+$greyboxalt = '0';
 
 /* Directory to store cache roster output */
 $cachedir = './cache/';

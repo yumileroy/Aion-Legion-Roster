@@ -46,7 +46,8 @@ My template is 100% XHTML 1.0 Strict compatible. (After much screaming and yelli
     $url3
     $aionabsoluteurl (Replace character profile links with the official Aion site)
     $charnum (Number of characters to display per page)
-    $ajaxalt (Use Greybox alternate layout. Values can be 0 to off or 1 to on)
+    $greybox (Use Greybox. Values can be 0 to off or 1 to on)
+    $greyboxalt (Use Greybox alternate layout. Values can be 0 to off or 1 to on)
     $cachedir (Directory to store cache output)
     $cachetime (Number of seconds to cache output for)
 

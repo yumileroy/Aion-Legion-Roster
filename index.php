@@ -93,13 +93,16 @@ else
     foreach ($html->find('*[href]') as $elem) {
         $charprofilename = strip_tags($elem->outertext);
         $elem->title = "$charprofilename's Profile";
-        if($ajaxalt == 0)
+        if($greybox == 1)
         {
-            $elem->rel = "gb_page_fs[]";
-        }
-        else if($ajaxalt == 1)
-        {
-            $elem->onclick = "return GB_showPage(this.title, this.href)";
+            if($greyboxalt == 0)
+            {
+                $elem->rel = "gb_page_fs[]";
+            }
+            else if($greyboxalt == 1)
+            {
+                $elem->onclick = "return GB_showPage(this.title, this.href)";
+            }
         }
         if (strtoupper($elem->tag) === 'BASE') continue;
         $elem->href = htmlspecialchars($elem->href);
@@ -135,13 +138,16 @@ else
         foreach ($html2->find('*[href]') as $elem) {
             $charprofilename = strip_tags($elem->outertext);
             $elem->title = "$charprofilename's Profile";
-            if($ajaxalt == 0)
+            if ($greybox == 1)
             {
-                $elem->rel = "gb_page_fs[]";
-            }
-            else if($ajaxalt == 1)
-            {
-                $elem->onclick = "return GB_showPage(this.title, this.href)";
+                if($greyboxalt == 0)
+                {
+                    $elem->rel = "gb_page_fs[]";
+                }
+                else if($greyboxalt == 1)
+                {
+                    $elem->onclick = "return GB_showPage(this.title, this.href)";
+                }
             }
             if (strtoupper($elem->tag) === 'BASE') continue;
             $elem->href = htmlspecialchars($elem->href);
@@ -175,13 +181,16 @@ else
         foreach ($html3->find('*[href]') as $elem) {
             $charprofilename = strip_tags($elem->outertext);
             $elem->title = "$charprofilename's Profile";
-            if($ajaxalt == 0)
+            if($greybox == 1)
             {
-                $elem->rel = "gb_page_fs[]";
-            }
-            else if($ajaxalt == 1)
-            {
-                $elem->onclick = "return GB_showPage(this.title, this.href)";
+                if($greyboxalt == 0)
+                {
+                    $elem->rel = "gb_page_fs[]";
+                }
+                else if($greyboxalt == 1)
+                {
+                    $elem->onclick = "return GB_showPage(this.title, this.href)";
+                }
             }
             if (strtoupper($elem->tag) === 'BASE') continue;
             $elem->href = htmlspecialchars($elem->href);
