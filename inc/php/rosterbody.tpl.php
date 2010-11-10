@@ -23,7 +23,7 @@
 <span class='header'>Levels: </span><br/>
 <?php
 foreach ($levels as $levelskey => $levelsvalue) {
-echo "Level $levelskey: $levelsvalue<br/>";
+    echo "Level $levelskey: $levelsvalue<br/>";
 }
 ?>
 </div>

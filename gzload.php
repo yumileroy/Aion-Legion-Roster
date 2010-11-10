@@ -11,13 +11,13 @@ $cacheLite = new Cache_Lite($cacheOptions);
 $cacheLite->clean();
 if(false == $buffer = $cacheLite->get($cacheId)) {
 
-	if(empty($_GET['files']) || empty($_GET['type'])) {
-		trigger_error('Type and or files not set, exiting', E_USER_WARNING);
-	}
+    if(empty($_GET['files']) || empty($_GET['type'])) {
+        trigger_error('Type and or files not set, exiting', E_USER_WARNING);
+    }
 
-	$files = explode(',' ,  $_GET['files']);
-	$path = realpath(dirname(__FILE__));
-	$buffer = '';
+    $files = explode(',' ,  $_GET['files']);
+    $path = realpath(dirname(__FILE__));
+    $buffer = '';
 
     foreach($files as $file) {
         $file = trim($file);
@@ -26,12 +26,12 @@ if(false == $buffer = $cacheLite->get($cacheId)) {
         }
     }
 
-	// Minify JS
-	if($_GET['type'] == 'js') {
-		$buffer = JSMin::minify($buffer);
-	}
+    // Minify JS
+    if($_GET['type'] == 'js') {
+        $buffer = JSMin::minify($buffer);
+    }
 
-	// Remove comments, excess whitespace and newlines
+    // Remove comments, excess whitespace and newlines
     if($_GET['type'] == 'css') {
         $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
         $buffer = str_replace(array("\r", "\n", "\t", "  "), '', $buffer);
@@ -42,21 +42,21 @@ if(false == $buffer = $cacheLite->get($cacheId)) {
     {
         $buffer = gzencode($buffer, 9); // Wordt geregeld door Apache
     }
-	// $cacheLite->save($buffer);
+    // $cacheLite->save($buffer);
 }
 
 switch($_GET['type']) {
-    case 'css':
-        $contentType = 'Content-type: text/css; charset: UTF-8';
-        break;
+case 'css':
+    $contentType = 'Content-type: text/css; charset: UTF-8';
+    break;
 
-    case 'js':
-        $contentType = 'Content-type: text/javascript; charset: UTF-8';
-        break;
+case 'js':
+    $contentType = 'Content-type: text/javascript; charset: UTF-8';
+    break;
 
-    default:
-        $contentType = 'Content-type: text/plain; charset: UTF-8';
-		break;
+default:
+    $contentType = 'Content-type: text/plain; charset: UTF-8';
+    break;
 }
 
 if (!(@ini_get('zlib.output_compression')))

@@ -1,11 +1,11 @@
 <?php
 
 /************************************************************\
-*
-*	  Aion Roster Script Copyright 2010 - Yumi Nanako
-*	  www.yuminanako.info
-*
-\************************************************************/
+ *
+ *	  Aion Roster Script Copyright 2010 - Yumi Nanako
+ *	  www.yuminanako.info
+ *
+ \************************************************************/
 
 /* Values are 'na' for North American servers and 'uk' for United Kingdom servers */
 $countryID = 'na';
@@ -31,6 +31,9 @@ $aionabsoluteurl = "http://" . $countryID . ".aiononline.com/";
 
 /* Number of characters to display per page */
 $charnum = '20';
+
+/* Use Greybox alternate layout (Values can be 0 to off or 1 to on) */
+$ajaxalt = '0';
 
 /* Directory to store cache roster output */
 $cachedir = './cache/';

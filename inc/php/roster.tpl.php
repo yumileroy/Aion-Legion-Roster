@@ -31,12 +31,12 @@ if ($display !== "all") { ?>
 
 <tbody>
 <?php for ( $i = 0; $i < count($memberPages); $i++) {
-echo "<tr>";
-echo $memberPages[$i];
-echo $gradePages[$i];
-echo $levelPages[$i];
-echo $classPages[$i];
-echo "</tr>";
+    echo "<tr>";
+    echo $memberPages[$i];
+    echo $gradePages[$i];
+    echo $levelPages[$i];
+    echo $classPages[$i];
+    echo "</tr>";
 }
 ?>
 </tbody>
@@ -54,12 +54,12 @@ echo "</tr>";
 
 <tbody>
 <?php for ( $i = 0; $i < count($members); $i++) {
-echo "<tr>";
-echo $members[$i];
-echo $grade[$i];
-echo $level[$i];
-echo $class[$i];
-echo "</tr>";
+    echo "<tr>";
+    echo $members[$i];
+    echo $grade[$i];
+    echo $level[$i];
+    echo $class[$i];
+    echo "</tr>";
 }
 ?>
 </tbody>
