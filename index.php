@@ -99,7 +99,7 @@ else
         }
         else if($ajaxalt == 1)
         {
-            $elem->onclick = "return GB_showPage('$charprofilename\'s Profile', this.href)";
+            $elem->onclick = "return GB_showPage(this.title, this.href)";
         }
         if (strtoupper($elem->tag) === 'BASE') continue;
         $elem->href = htmlspecialchars($elem->href);
@@ -141,7 +141,7 @@ else
             }
             else if($ajaxalt == 1)
             {
-                $elem->onclick = "return GB_showPage('$charprofilename\'s Profile', this.href)";
+                $elem->onclick = "return GB_showPage(this.title, this.href)";
             }
             if (strtoupper($elem->tag) === 'BASE') continue;
             $elem->href = htmlspecialchars($elem->href);
@@ -181,7 +181,7 @@ else
             }
             else if($ajaxalt == 1)
             {
-                $elem->onclick = "return GB_showPage('$charprofilename\'s Profile', this.href)";
+                $elem->onclick = "return GB_showPage(this.title, this.href)";
             }
             if (strtoupper($elem->tag) === 'BASE') continue;
             $elem->href = htmlspecialchars($elem->href);
