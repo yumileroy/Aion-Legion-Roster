@@ -25,9 +25,6 @@ $cachefile = $cacheoptions['cacheDir'] . "cache_default_" . $cacheid;
 /* Create a Cache_Lite object */
 $Cache_Lite = new Cache_Lite($cacheoptions);
 
-/* Set Default Timezone */
-date_default_timezone_set($timezone);
-
 if ($cachedata = $Cache_Lite->get($cacheid))
 {
     /* Cache hit! We've got the cached content stored in $data! */

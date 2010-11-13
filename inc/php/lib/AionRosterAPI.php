@@ -12,6 +12,8 @@ require('inc/php/lib/pagination.class.php');
 require('inc/php/lib/URL2.php');
 require('inc/php/lib/curl.php');
 
+/* Set Default Timezone */
+date_default_timezone_set($timezone);
 
 /* Initialize Pagination */
 $pagination = new pagination;
