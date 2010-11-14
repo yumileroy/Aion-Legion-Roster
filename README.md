@@ -15,6 +15,7 @@ My template is 100% XHTML 1.0 Strict compatible. (After much screaming and yelli
 - Supported character replacement links to point to Aion site with [PEAR Net_URL2](http://pear.php.net/package/Net_URL2/ "PEAR Net_URL2")
 - Supported Pagination with [Lots of Code PHP Array Pagination](http://www.lotsofcode.com/php/php-array-pagination.htm "Lots of Code PHP Array Pagination")
 - Supported AJAX profile popup with [Orangoo Labs - Greybox](http://orangoo.com/labs/GreyBox/ "Orangoo Labs - Greybox")
+- Supported Flash chart of classes with [Open Flash Chart 2](http://teethgrinder.co.uk/open-flash-chart-2/ "Open Flash Chart 2")
 - Supported file retrieval with either [cURL](http://php.net/manual/en/book.curl.php "PHP: cURL - Manual") or fallbacks to file_get_contents if cURL PHP extension is not installed.
 
 ### **Requirements**:
@@ -30,7 +31,7 @@ My template is 100% XHTML 1.0 Strict compatible. (After much screaming and yelli
     Then edit inc/php/config.php to suit your legion.
 
 ##### To change how the page display: 
-    Edit inc/php/roster.tpl.php and inc/css/style.css
+    Edit inc/php/roster.tpl.php, inc/php/rosterbody.tpl.php and inc/css/style.css
 
 ### **Variables**:
 #### Configuration (Although the config file is pretty much explained, I'll put it in here just for reference)
@@ -50,6 +51,11 @@ My template is 100% XHTML 1.0 Strict compatible. (After much screaming and yelli
     $greyboxalt (Use Greybox alternate layout. Values can be 0 to off or 1 to on)
     $cachedir (Directory to store cache output)
     $cachetime (Number of seconds to cache output for)
+    $scachetime (Number of seconds to cache scraped output for)
+    $sfile0 (File name of page 1 of scraped output)
+    $sfile1 (File name of page 2 of scraped output)
+    $sfile2 (File name of page 3 of scraped output)
+    $sfilec (File name of combined pages of scraped output)
 
 #### Legion Information:
 

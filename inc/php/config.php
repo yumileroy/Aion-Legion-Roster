@@ -42,7 +42,7 @@ $greyboxalt = '0';
 $cachedir = './cache/';
 
 /* Seconds to cache roster output (In seconds) */
-$cachetime = '0';
+$cachetime = '300';
 
 /* Seconds to cache scraped data from Aion site */
 $scachetime = '300';
