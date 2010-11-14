@@ -11,7 +11,9 @@
 <?php echo $templars ?> Templars <br/>
 <span class='subheader'>Mage Classes</span><br/>
 <?php echo $sorcerers ?> Sorcerers <br/>
-<?php echo $spiritmasters ?> Spiritmasters
+<?php echo $spiritmasters ?> Spiritmasters <br/>
+<br/>
+<a href="ofc.php" title="<?php echo $legionname ?> Class Percentage" rel="gb_page_center[550, 550]">Class Percentage</a>
 </div>
 
 <div class='right' style='text-align=right;'>

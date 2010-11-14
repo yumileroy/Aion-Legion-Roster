@@ -42,6 +42,15 @@ $greyboxalt = '0';
 $cachedir = './cache/';
 
 /* Seconds to cache roster output (In seconds) */
-$cachetime = '300';
+$cachetime = '0';
+
+/* Seconds to cache scraped data from Aion site */
+$scachetime = '300';
+
+/* Files of scraped data from Aion site */
+$sfile0 = $guildID."legion0.html";
+$sfile1 = $guildID."legion1.html";
+$sfile2 = $guildID."legion2.html";
+$sfilec = $guildID."legionc.html";
 
 ?>
