@@ -19,42 +19,73 @@ date_default_timezone_set($timezone);
 $pagination = new pagination;
 
 /* Create DOM from URL (Curl / file_get_html) - Fallback to file_get_html if Curl is not installed */
-if (_iscurlinstalled())
+if (_iscurlinstalled() && (time() - filemtime($cachedir.$sfilec) >= $scachetime))
 {
-    //$htmlc = file_get_contents_curl($url);
-    //$htmlc .= file_get_contents_curl($url2);
-    //$htmlc .= file_get_contents_curl($url3);
-    $urls[0] = $url;
-    $urls[1] = $url2;
-    $urls[2] = $url3;
-    file_multi_get_curl($urls, "cache/");
+    file_get_curl($url, $cachedir.$sfile0);
+    if(strpos(file_get_contents($cachedir.$sfile0), "error/500"))
+    {
+        file_get_curl($url, $cachedir.$sfile0);
+    }
+    file_get_curl($url2, $cachedir.$sfile1);
+    if(strpos(file_get_contents($cachedir.$sfile1), "error/500"))
+    {
+        file_get_curl($url2, $cachedir.$sfile1);
+    }
+    file_get_curl($url3, $cachedir.$sfile2);
+    if(strpos(file_get_contents($cachedir.$sfile2), "error/500"))
+    {
+        file_get_curl($url3, $cachedir.$sfile2);
+    }
 }
-else
+else if (_iscurlinstalled() == false)
 {
-    $html = file_get_html($url);
-    $html .= file_get_html($url2);
-    $html .= file_get_html($url3);
+    $html0 = file_get_contents($url);
+    file_put_contents($cachedir.$sfile0, $html0);
+    if(strpos(file_get_contents($cachedir.$sfile0), "error/500"))
+    {
+        $html0 = file_get_contents($url);
+        file_put_contents($cachedir.$sfile0, $html0);
+    }
+
+    $html1 = file_get_contents($url2);
+    file_put_contents($cachedir.$sfile1, $html1);
+    if(strpos(file_get_contents($cachedir.$sfile1), "error/500"))
+    {
+        $html1 = file_get_contents($url2);
+        file_put_contents($cachedir.$sfile1, $html1);
+    }
+
+    $html2 = file_get_contents($url3);
+    file_put_contents($cachedir.$sfile2, $html2);
+    if(strpos(file_get_contents($cachedir.$sfile2), "error/500"))
+    {
+        $html2 = file_get_contents($url3);
+        file_put_contents($cachedir.$sfile2, $html2);
+    }
 }
 
-if(!file_exists("cache/legionc.html") or (time() - filemtime("cache/legionc.html") >= $scachetime))
+if(!file_exists($cachedir.$sfilec) or (time() - filemtime($cachedir.$sfilec) >= $scachetime))
 {
-    $htmlc = "cache/legionc.html";
+    $htmlc = $cachedir.$sfilec;
     if(file_exists($htmlc))
     {
         unlink($htmlc);
     }
     $fh = fopen($htmlc, 'a');
-    $legion0 = file_get_contents("cache/legion0.html");
-    $legion1 = file_get_contents("cache/legion1.html");
-    $legion2 = file_get_contents("cache/legion2.html");
+    $legion0 = file_get_contents($cachedir.$sfile0);
+    $legion1 = file_get_contents($cachedir.$sfile1);
+    $legion2 = file_get_contents($cachedir.$sfile2);
     fwrite($fh, $legion0);
     fwrite($fh, $legion1);
     fwrite($fh, $legion2);
     fclose($fh);
+    unlink($cachedir.$sfile0);
+    unlink($cachedir.$sfile1);
+    unlink($cachedir.$sfile2);
 }
 
 $display = $_GET['display'];
-$html = file_get_html("cache/legionc.html");
+$html = file_get_html($cachedir.$sfilec);
 
 /* Create Arrays for Different variables */
 $members = array();

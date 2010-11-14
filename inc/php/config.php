@@ -45,6 +45,12 @@ $cachedir = './cache/';
 $cachetime = '0';
 
 /* Seconds to cache scraped data from Aion site */
-$cachetime = '300';
+$scachetime = '300';
+
+/* Files of scraped data from Aion site */
+$sfile0 = $guildID."legion0.html";
+$sfile1 = $guildID."legion1.html";
+$sfile2 = $guildID."legion2.html";
+$sfilec = $guildID."legionc.html";
 
 ?>
