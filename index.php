@@ -9,6 +9,7 @@
 require('inc/php/timer-header.tpl.php');
 require('inc/php/config.php');
 require('inc/php/lib/CacheLite.php');
+require('inc/php/lib/AionRosterAPI.php');
 
 /* Set a key for this cache item */
 $cacheid = $guildID . basename(htmlspecialchars($_SERVER['REQUEST_URI']));
@@ -34,9 +35,6 @@ else
 {
 
     ob_start();
-
-    /* Include Aion Roster API */
-    require('inc/php/lib/AionRosterAPI.php'); 
 
     /* Include Roster Template */
     require('inc/php/roster.tpl.php');

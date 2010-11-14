@@ -21,18 +21,40 @@ $pagination = new pagination;
 /* Create DOM from URL (Curl / file_get_html) - Fallback to file_get_html if Curl is not installed */
 if (_iscurlinstalled())
 {
-    $html = str_get_html(file_get_contents_curl($url));
-    $html2 = str_get_html(file_get_contents_curl($url2));
-    $html3 = str_get_html(file_get_contents_curl($url3));
+    //$htmlc = file_get_contents_curl($url);
+    //$htmlc .= file_get_contents_curl($url2);
+    //$htmlc .= file_get_contents_curl($url3);
+    $urls[0] = $url;
+    $urls[1] = $url2;
+    $urls[2] = $url3;
+    file_multi_get_curl($urls, "cache/");
 }
 else
 {
     $html = file_get_html($url);
-    $html2 = file_get_html($url2);
-    $html3 = file_get_html($url3);
+    $html .= file_get_html($url2);
+    $html .= file_get_html($url3);
+}
+
+if(!file_exists("cache/legionc.html") or (time() - filemtime("cache/legionc.html") >= $scachetime))
+{
+    $htmlc = "cache/legionc.html";
+    if(file_exists($htmlc))
+    {
+        unlink($htmlc);
+    }
+    $fh = fopen($htmlc, 'a');
+    $legion0 = file_get_contents("cache/legion0.html");
+    $legion1 = file_get_contents("cache/legion1.html");
+    $legion2 = file_get_contents("cache/legion2.html");
+    fwrite($fh, $legion0);
+    fwrite($fh, $legion1);
+    fwrite($fh, $legion2);
+    fclose($fh);
 }
 
 $display = $_GET['display'];
+$html = file_get_html("cache/legionc.html");
 
 /* Create Arrays for Different variables */
 $members = array();
@@ -81,10 +103,6 @@ foreach ($html->find('*[href]') as $elem) {
     $elem->href = htmlspecialchars($elem->href);
     $elem->href = $baseURI->resolve($elem->href)->__toString();
 }
-/* Save number of pages to variable */
-foreach ($html->find('div[class=paging]') as $key => $testinfo) {
-    $page[] = $testinfo->plaintext;
-}
 foreach ($html->find('ul[class=legion]') as $key => $legioninfo) {
     $legion[] = preg_replace('/[^(\x20-\x7F)]*/', '', $legioninfo->plaintext);
 }
@@ -103,92 +121,7 @@ foreach ($html->find('td[class=class]') as $classkey => $classinfo) {
     $class[] = $classinfo;
     $classtext[] = $classinfo->plaintext;
 }
-/* If Page 2 exists, scrape Page 2 */
-if (strlen(strstr($page[0], "2")) > 0) {
-    foreach ($html2->find('*[src]') as $elem) {
-        $elem->src = $baseURI->resolve($elem->src)->__toString();
-    }
-    foreach ($html2->find('*[href]') as $elem) {
-        $charprofilename = strip_tags($elem->outertext);
-        $elem->title = "$charprofilename's Profile";
-        if ($greybox == 1)
-        {
-            if($greyboxalt == 0)
-            {
-                $elem->rel = "gb_page_fs[]";
-            }
-            else if($greyboxalt == 1)
-            {
-                $elem->onclick = "return GB_showPage(this.title, this.href)";
-            }
-        }
-        if (strtoupper($elem->tag) === 'BASE') continue;
-        $elem->href = htmlspecialchars($elem->href);
-        $elem->href = $baseURI->resolve($elem->href)->__toString();
-    }
-    foreach ($html2->find('td[class=member]') as $key => $memberinfo) {
-        $members[] = $memberinfo;
-        $members2[] = $memberinfo->plaintext;
-    }
-    foreach ($html2->find('td[class=grade]') as $gradekey => $gradeinfo) {
-        $grade[] = $gradeinfo;
-        $gradetext[] = preg_replace('/[^(\x20-\x7F)]*/', '', $gradeinfo->plaintext);
-        $grade2[] = $gradeinfo->plaintext;
-    }
-    foreach ($html2->find('td[class=level]') as $levelkey => $levelinfo) {
-        $level[] = $levelinfo;
-        $leveltext[] = $levelinfo->plaintext;
-        $level2[] = $levelinfo->plaintext;
-    }
-    foreach ($html2->find('td[class=class]') as $classkey => $classinfo) {
-        $class[] = $classinfo;
-        $classtext[] = $classinfo->plaintext;
-        $class2[] = $classinfo->plaintext;
-    }
-}
-/* If Page 3 exists, scrape Page 3 */
-if (strlen(strstr($page[0], "3")) > 0) {
-    foreach ($html3->find('*[src]') as $elem) {
-        $elem->src = $baseURI->resolve($elem->src)->__toString();
-    }
-    foreach ($html3->find('*[href]') as $elem) {
-        $charprofilename = strip_tags($elem->outertext);
-        $elem->title = "$charprofilename's Profile";
-        if($greybox == 1)
-        {
-            if($greyboxalt == 0)
-            {
-                $elem->rel = "gb_page_fs[]";
-            }
-            else if($greyboxalt == 1)
-            {
-                $elem->onclick = "return GB_showPage(this.title, this.href)";
-            }
-        }
-        if (strtoupper($elem->tag) === 'BASE') continue;
-        $elem->href = htmlspecialchars($elem->href);
-        $elem->href = $baseURI->resolve($elem->href)->__toString();
-    }
-    foreach ($html3->find('td[class=member]') as $key => $memberinfo) {
-        $members[] = $memberinfo;
-        $members3[] = $memberinfo->plaintext;
-    }
-    foreach ($html3->find('td[class=grade]') as $gradekey => $gradeinfo) {
-        $grade[] = $gradeinfo;
-        $gradetext[] = preg_replace('/[^(\x20-\x7F)]*/', '', $gradeinfo->plaintext);
-        $grade3[] = $gradeinfo->plaintext;
-    }
-    foreach ($html3->find('td[class=level]') as $levelkey => $levelinfo) {
-        $level[] = $levelinfo;
-        $leveltext[] = $levelinfo->plaintext;
-        $level3[] = $levelinfo->plaintext;
-    }
-    foreach ($html3->find('td[class=class]') as $classkey => $classinfo) {
-        $class[] = $classinfo;
-        $classtext[] = $classinfo->plaintext;
-        $class3[] = $classinfo->plaintext;
-    }
-}
+
 /* Count number of classes in legion */
 $classes = array_count_values($classtext);
 $assassins = $classes[' Assassin'];
