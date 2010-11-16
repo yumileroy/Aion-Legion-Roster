@@ -114,7 +114,7 @@ foreach ($html->find('base[href]') as $elem) {
     $baseURI = $uri->resolve($elem->href);
 }
 foreach ($html->find('*[src]') as $elem) {
-    $elem->src = $baseURI->resolve($elem->src)->__toString();
+    $elem->src = str_replace("http://static.na.aiononline.com/aion/common/", "inc/img/", $elem->src);
 }
 foreach ($html->find('*[href]') as $elem) {
     $charprofilename = strip_tags($elem->outertext);
