@@ -91,6 +91,12 @@ My template is 100% XHTML 1.0 Strict compatible. (After much screaming and yelli
     $level (Array containing character level)
     $class (Array containing character class)
 
+### **To-Do**:
+
+    Add class counts for first classes
+    Tidy up source
+    More....
+
 ### **Demo**:
 
 An demo of the script running is [here](http://nanaforge.info/roster/ "Yumi Aion Legion Roster Script Demo").
