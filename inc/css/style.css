@@ -27,22 +27,72 @@ table.sortable thead {
     font: bold 12px/22px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 }
 
-.left{    
-    float:left;
-    line-height:15px;
-    padding-left:25%;
-}
-
-.right{
-    float:right;
-    line-height:15px;
-    padding-right: 25%;
-}
-
-.center {
-    float:center;
-    line-height:15px;
-}
+#header {
+	background:#4f6b72;
+	padding:10px;
+	margin:0;
+	text-align:center;
+	color:#FFF;
+	}
+#header h1 {
+	font-size:200%;
+	}
+#header a:hover {
+	color:#7A2875;
+	}
+#maincol {
+	position:relative;
+	margin:0;
+	padding:10px;
+	}
+#leftcol { 
+	position:relative;
+	top:-10px;
+	left:21%;
+	float:left;
+	width:23%;  /* for IE5/WIN */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width:100px; /* actual value */
+	margin:0 0 -10px 0;
+	padding:10px;
+	z-index:100;
+	}
+#rightcol {
+	position:relative;
+	top:-10px;
+	right:21%;
+	float:right;
+	width:23%;  /* for IE5/WIN */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width:100px; /* actual value */
+	margin:0 0 -10px 0;
+	padding:10px;
+	z-index:99;
+	}
+#centercol {
+	position:relative;
+	padding:0 0px;
+	}
+#centercol a {
+	color:#666;
+	}
+#centercol a:hover {
+	border-bottom:1px solid;
+	color:#9343B9;
+	}
+#footer {
+	position:relative;
+	top:1px;
+	background:#4f6b72;
+	width:100%;
+	clear:both;
+	margin:0;
+	padding:1% 0;
+	text-align:center;
+	color:#CCC;
+	}
 
 body
 {

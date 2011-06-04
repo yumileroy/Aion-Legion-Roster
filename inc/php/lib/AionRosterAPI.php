@@ -36,6 +36,16 @@ if (_iscurlinstalled() && (time() - filemtime($cachedir.$sfilec) >= $scachetime)
     {
         file_get_curl($url3, $cachedir.$sfile2);
     }
+    file_get_curl($url4, $cachedir.$sfile3);
+    if(strpos(file_get_contents($cachedir.$sfile3), "error/500"))
+    {
+        file_get_curl($url4, $cachedir.$sfile3);
+    }
+    file_get_curl($url5, $cachedir.$sfile4);
+    if(strpos(file_get_contents($cachedir.$sfile4), "error/500"))
+    {
+        file_get_curl($url5, $cachedir.$sfile4);
+    }
 }
 else if (_iscurlinstalled() == false)
 {
@@ -62,6 +72,22 @@ else if (_iscurlinstalled() == false)
         $html2 = file_get_contents($url3);
         file_put_contents($cachedir.$sfile2, $html2);
     }
+
+    $html3 = file_get_contents($url4);
+    file_put_contents($cachedir.$sfile3, $html3);
+    if(strpos(file_get_contents($cachedir.$sfile3), "error/500"))
+    {
+        $html3 = file_get_contents($url4);
+        file_put_contents($cachedir.$sfile3, $html3);
+    }
+
+    $html4 = file_get_contents($url5);
+    file_put_contents($cachedir.$sfile4, $html4);
+    if(strpos(file_get_contents($cachedir.$sfile4), "error/500"))
+    {
+        $html4 = file_get_contents($url5);
+        file_put_contents($cachedir.$sfile4, $html4);
+    }
 }
 
 if(!file_exists($cachedir.$sfilec) or (time() - filemtime($cachedir.$sfilec) >= $scachetime))
@@ -75,13 +101,19 @@ if(!file_exists($cachedir.$sfilec) or (time() - filemtime($cachedir.$sfilec) >= 
     $legion0 = file_get_contents($cachedir.$sfile0);
     $legion1 = file_get_contents($cachedir.$sfile1);
     $legion2 = file_get_contents($cachedir.$sfile2);
+    $legion3 = file_get_contents($cachedir.$sfile3);
+    $legion4 = file_get_contents($cachedir.$sfile4);
     fwrite($fh, $legion0);
     fwrite($fh, $legion1);
     fwrite($fh, $legion2);
+    fwrite($fh, $legion3);
+    fwrite($fh, $legion4);
     fclose($fh);
     unlink($cachedir.$sfile0);
     unlink($cachedir.$sfile1);
     unlink($cachedir.$sfile2);
+    unlink($cachedir.$sfile3);
+    unlink($cachedir.$sfile4);
 }
 
 $display = $_GET['display'];
@@ -114,7 +146,24 @@ foreach ($html->find('base[href]') as $elem) {
     $baseURI = $uri->resolve($elem->href);
 }
 foreach ($html->find('*[src]') as $elem) {
+    //$elem->src = $baseURI->resolve($elem->src)->__toString();
     $elem->src = str_replace("http://static.na.aiononline.com/aion/common/", "inc/img/", $elem->src);
+    if(strpos($elem->src, "/race/"))
+    {
+        $elem->width = "18";
+        $elem->height = "18";
+    }
+    if(strpos($elem->src, "/grade/"))
+    {
+        $elem->width = "15";
+        $elem->height = "16";
+    }
+    if(strpos($elem->src, "/class/"))
+    {
+        $elem->width = "18";
+        $elem->height = "18";
+    }
+
 }
 foreach ($html->find('*[href]') as $elem) {
     $charprofilename = strip_tags($elem->outertext);

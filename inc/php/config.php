@@ -15,7 +15,7 @@ $serverID = '2';
 $guildID = '11569';
 
 /* Timezone for roster script (Values can be taken from http://php.net/manual/en/timezones.php) */
-$timezone = 'UTC';
+$timezone = 'Japan';
 
 /* Time / Date style used for roster script (Values can be taken from http://php.net/manual/en/function.date.php) */
 $datestyle = "l, F j Y, g:i A T";
@@ -25,6 +25,8 @@ $url = 'http://' . $countryID . '.aiononline.com/livestatus/character-legion/sea
 $url1 = $url . '&currentPage=1&connectGame=';
 $url2 = $url . '&currentPage=2&connectGame=';
 $url3 = $url . '&currentPage=3&connectGame=';
+$url4 = $url . '&currentPage=4&connectGame=';
+$url5 = $url . '&currentPage=5&connectGame=';
 
 /* Replace links and img relative url to absolute url to Aion site */
 $aionabsoluteurl = "http://" . $countryID . ".aiononline.com/";
@@ -36,13 +38,13 @@ $charnum = '20';
 $greybox = '1';
 
 /* Use Greybox alternate layout (Values can be 0 to off or 1 to on) */
-$greyboxalt = '0';
+$greyboxalt = '1';
 
 /* Directory to store cache roster output */
 $cachedir = './cache/';
 
 /* Seconds to cache roster output (In seconds) */
-$cachetime = '300';
+$cachetime = '0';
 
 /* Seconds to cache scraped data from Aion site */
 $scachetime = '300';
@@ -51,6 +53,8 @@ $scachetime = '300';
 $sfile0 = $guildID."legion0.html";
 $sfile1 = $guildID."legion1.html";
 $sfile2 = $guildID."legion2.html";
+$sfile3 = $guildID."legion3.html";
+$sfile4 = $guildID."legion4.html";
 $sfilec = $guildID."legionc.html";
 
 ?>

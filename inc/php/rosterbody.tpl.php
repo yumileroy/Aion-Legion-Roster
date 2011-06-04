@@ -1,4 +1,14 @@
-<div class='left' style='text-align=left;'>
+<div id='header' class='center' style='text-align:center;'>
+<span class='header'>Legion: </span><?php echo $legionname ?><br/>
+<span class='header'>Created: </span><?php echo $legioncreated ?><br/>
+<span class='header'>Members: </span><?php echo $legionmember ?>
+</div>
+
+<div id="wrapper1"><!-- sets background to white and creates full length leftcol-->
+	<div id="wrapper2"><!-- sets background to white and creates full length rightcol-->
+		<div id="maincol"><!-- begin main content area -->
+
+<div id='leftcol' style='text-align=left;'>
 <span class='header'>Classes: </span><br/>
 <span class='subheader'>Scout Classes</span><br/>
 <?php echo $assassins ?> Assassins <br/>
@@ -16,7 +26,8 @@
 <a href="ofc.php" title="<?php echo $legionname ?> Class Percentage" rel="gb_page_center[550, 550]">Class Percentage</a>
 </div>
 
-<div class='right' style='text-align=right;'>
+
+<div id='rightcol' style='text-align=right;'>
 <span class='header'>Grades: </span><br/>
 <?php echo $brigadegeneral ?> Brigade General <br/>
 <?php echo $centurions ?> Centurions <br/>
@@ -30,12 +41,7 @@ foreach ($levels as $levelskey => $levelsvalue) {
 ?>
 </div>
 
-<div class='center' style='text-align:center;'>
-<span class='header'>Legion: </span><?php echo $legionname ?><br/>
-<span class='header'>Created: </span><?php echo $legioncreated ?><br/>
-<span class='header'>Members: </span><?php echo $legionmember ?>
-</div>
-
+<div id='centercol'>
 <table class='sortable'>
 <thead>
 <tr>

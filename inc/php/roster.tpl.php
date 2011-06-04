@@ -36,6 +36,7 @@ if ($display !== "all") { ?>
 
 <?php include('inc/php/rosterbody.tpl.php'); ?>
 
+
 <tbody>
 <?php for ( $i = 0; $i < count($memberPages); $i++) {
     echo "<tr>";
@@ -48,8 +49,11 @@ if ($display !== "all") { ?>
 ?>
 </tbody>
 </table>
+</div><!-- end centercol -->
 
-<div class='centerblock'>
+</div><!-- end main content area -->
+
+<div id='footer'>
 <?php echo $pagination->links() . "<br/>"; ?>
 <a href='?display=all'>All</a><br/>
 <?php include('inc/php/timer-footer.tpl.php'); } ?>
@@ -71,10 +75,15 @@ if ($display !== "all") { ?>
 ?>
 </tbody>
 </table>
+</div><!-- end centercol -->
 
-<div class='centerblock'>
+</div><!-- end main content area -->
+
+<div id='footer'>
 <?php include('inc/php/timer-footer.tpl.php'); } ?>
 </div>
+
+	</div><!-- end wrapper1 -->
 
 </body>
 </html>
