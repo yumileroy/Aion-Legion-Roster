@@ -103,5 +103,5 @@ An demo of the script running is [here](http://nanaforge.info/roster/ "Yumi Aion
 
 ### **Authors**:
 
-Original Author is [**Yumi Nanako**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail") / [**Yumi (Mythical) of Israphel**](http://na.aiononline.com/livestatus/character-legion/search?serverID=2&charID=329640 "Yumi's Aion Profile").
-It is currently maintained by [**Yumi Nanako**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail") / [**Yumi (Mythical) of Israphel**](http://na.aiononline.com/livestatus/character-legion/search?serverID=2&charID=329640 "Yumi's Aion Profile")
+Original Author is [**Yumi Nanako**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail") / [**Yumi (Mythical) of Israphel**](http://na.aiononline.com/livestatus/character-legion/search?serverID=2&charID=329640 "Yumi's Aion Profile") and [**Leroy Lim Han Yong**](mailto:leroylim@yuminanako.info "Leroy Lim E-mail").
+It is currently maintained by [**Yumi Nanako**](mailto:yuminanako@yuminanako.info "Yumi Nanako E-mail") / [**Yumi (Mythical) of Israphel**](http://na.aiononline.com/livestatus/character-legion/search?serverID=2&charID=329640 "Yumi's Aion Profile") and [**Leroy Lim Han Yong**](mailto:leroylim@yuminanako.info "Leroy Lim E-mail").
